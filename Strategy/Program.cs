@@ -60,17 +60,14 @@ namespace TravelBooking
         {
             var context = new TravelBookingContext();
 
-            // Выбор стратегии самолета
             context.SetStrategy(new AirplaneCostStrategy());
             double cost = context.CalculateCost(1000, 2, "Эконом", true);
             Console.WriteLine($"Стоимость поездки на самолете: {cost:F2} руб.");
 
-            // Выбор стратегии поезда
             context.SetStrategy(new TrainCostStrategy());
             cost = context.CalculateCost(1000, 2, "Бизнес", false);
             Console.WriteLine($"Стоимость поездки на поезде: {cost:F2} руб.");
 
-            // Выбор стратегии автобуса
             context.SetStrategy(new BusCostStrategy());
             cost = context.CalculateCost(500, 3, "Эконом", true);
             Console.WriteLine($"Стоимость поездки на автобусе: {cost:F2} руб.");
